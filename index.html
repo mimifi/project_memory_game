@@ -7,6 +7,8 @@
   <meta name="author" content="">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
 
   <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -17,7 +19,7 @@
   <!-- TODO: 
       The game randomly shuffles the cards. A user wins once all cards have successfully been matched.
 
-    1. write the header: Matching Game
+    1. write the header: Matching Game & a brief welcome massage.
     2. Star Rating - 5 stars 
     3. Move Counter: number of moves
     4. Timer: strat the time as player start the game - stop as player win the game
@@ -28,7 +30,29 @@
     -->
 
   <div class="main wrapper">
-    <p>Hello, world!</p>
+
+    <div class="headline">
+      <h1>Matching Game</h1>
+      <p>Welcome to our memory Game. Let's start the game!</p>
+    </div>
+
+    <div>
+      <span class="starts">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </span>
+      <span class="timer">
+        <i class="fas fa-stopwatch"></i>
+      </span>
+      <div class="moves">
+        <p>Number of moves:</p>
+      </div>
+    </div>
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/script.js"></script>
