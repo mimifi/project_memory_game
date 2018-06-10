@@ -1,0 +1,12 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-container>.flex-item {
+    flex: auto;
+    border: 0.5em solid #1c1c4b;
+    padding: 5em;
+    margin: auto;
+    background-color: bisque;
+}
