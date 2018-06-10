@@ -74,10 +74,18 @@ class Timer {
 
 $(document).ready(() => {
     timer = new Timer();
-})
+});
 
 
 /**
  * () => {}
  * function () {}
  */
+
+/**
+ *@description initialize the stars and add funtion to these
+ */
+
+$(".fas.fa-star").click(function () {
+    $(this).removeClass("fas").addClass("far");
+});
