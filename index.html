@@ -39,16 +39,16 @@
     </div>
 
     <div>
-      <span class="stars">
+      <p class="stars">
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
-      </span>
+      </p>
       <span class="timer">
         <i class="fas fa-stopwatch"></i>
-        <p class="show_time">00:00</p>
+        <span class="show_time">00:00</span>
       </span>
       <div class="moves">
         <p>Number of moves:</p>
@@ -86,12 +86,15 @@
     </div>
 
     <div id="button">
-      <button onclick="timer.startCount()">Start Game!</button>
+      <button onclick="game.reset()">Start a Game</button>
     </div>
 
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/stars.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/timer.js"></script>
     <script src="js/main.js"></script>
   </div>
 </body>
