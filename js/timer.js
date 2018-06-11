@@ -52,6 +52,14 @@ class Timer {
         }
     }
 
+/**
+ * @description reset the timer back to 00:00
+ */
+    resetTimer() {
+        alert("Let us start a new game!")
+        this.counterSec = 0;
+        this.counterMin = 0;
+    }
     /**
      * @description timer stop to count time
      */
