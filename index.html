@@ -31,13 +31,15 @@
        It should also tell the user how much time it took to win the game, and what the star rating was.
     -->
 
-  <div class="main wrapper">
+  <div class="main-wrapper">
 
     <div class="headline">
       <h1>Matching Game</h1>
       <p>Welcome to our memory Game. Let's start the game!</p>
+      <div class="image">
+        <img src="pic/character-classic-colorful-163114.jpg" alt="Have fun!">
+      </div>
     </div>
-
     <div>
       <p class="stars">
         <i class="fas fa-star"></i>
@@ -51,7 +53,7 @@
         <span class="show_time">00:00</span>
       </span>
       <div class="moves">
-        <p>Number of moves:</p>
+        <p>Number of moves: 0</p>
       </div>
     </div>
 
@@ -85,9 +87,7 @@
       </div>
     </div>
 
-    <div id="button">
-      <button onclick="game.reset()">Start a Game</button>
-    </div>
+    <button id="button" onclick="game.reset()">Start a Game</button>
 
 
 
