@@ -9,7 +9,6 @@ $(document).ready(() => {
 
     game.start();
 
-    $(".flex-container").on("click", ".flex-item", game.checkClickFromFlexItem)
+    $(".flex-container").on("click", ".flex-item", game.onClickOnFlexItem)
 });
 
-//TODO:Restart button reset all stars and the timer
