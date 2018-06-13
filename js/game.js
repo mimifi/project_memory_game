@@ -27,6 +27,7 @@ class Game {
      */
     start() {
         this.clickCounter = 0;
+        this.resetIcons();
         this.indexArray = [];
         const ctx = this;
         timer.startCount();
@@ -78,10 +79,31 @@ class Game {
     /**
      * @description: show the number of moves
      * function
-     * @param {number} numClicks 
+     * @param {number} 
      */
     showNumberOfMoves(numClicks) {
         $(".moves").children().text(`Number of moves ${numClicks}`)
+    }
+
+    /**
+     * @description: reset the timer, reset all icons, reset 5 stars and start the game again
+     * @function
+     */
+
+    reset() {
+        this.resetIcons();
+        timer.resetTimer();
+        stars.resetStars();
+        game.start();
+    }
+
+    /**
+     * @description: reset stars back to 5 full stars
+     * @function
+     */
+
+    resetIcons() {
+        $(".flex-item > i").remove();
     }
 
 
