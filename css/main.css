@@ -4,19 +4,18 @@
 
 body {
     background-color: aliceblue;
-    margin: 15mm;
+    margin: 30mm;
 }
 
 h1 {
     color: #1c1c4b;
-    text-align: left;
     font-size: 2 em;
+    margin: auto;
 }
 
 p {
     color: black;
-    font-size: 24 px;
-    font-size: 1 em;
+    font-size: 150%;
 }
 
 img {
@@ -24,9 +23,27 @@ img {
     text-align: right;
 }
 
+.image {
+    text-align: right;
+}
+
+.flex-container-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-container-header>.stars,
+.timer,
+.moves {
+    flex: none;
+    border: 0.5em solid aliceblue;
+    margin: auto;
+    text-align: left;
+}
+
 .main-wrapper {
     width: 600 em;
-    margin: 100 em;
+    margin: auto;
 }
 
 .stars {
@@ -48,12 +65,14 @@ img {
     flex: auto;
     border: 0.5em solid #1c1c4b;
     padding: 5em;
+    border-width: unset;
     margin: auto;
     background-color: bisque;
 }
 
 #button {
     font-size: 1.5em;
+    margin: 20px 0 10px 0;
 }
 
 /**https://codepen.io/darkwing/pen/bCali*/
