@@ -45,6 +45,37 @@ class Game {
     }
 
     /**
+     * @description: check if two clicks show same icons or not - reduce the starts for each 8 clicks
+     * @function: 
+     * @return: return nothing if user click 2 time on the same icon
+     */
+
+    onClickOnFlexItem() {
+        if ($(this) === $(game.firstClickedElement)) {
+            return;
+        }
+
+        if (game.clickCounter % 8 === 7) {
+            stars.reduceStar();
+        }
+
+        $(this).children().show(200);
+        game.clickCounter++;
+        game.showNumberOfMoves(game.clickCounter);
+        if (game.clickCounter % 2 === 0) {
+            if ($(this).children().attr("class") === $(game.firstClickedElement).children().attr("class")) {
+
+            } else {
+                $(this).children().hide(3000);
+                $(game.firstClickedElement).children().hide(3000);
+            }
+
+        } else {
+            game.firstClickedElement = $(this);
+        }
+    }
+
+    /**
      * @description: show the number of moves
      * function
      * @param {number} numClicks 
