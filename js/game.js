@@ -1,4 +1,10 @@
 class Game {
+
+    /**
+     * @description: get a random number between 0 - 16 
+     * @constructor
+     * @returns: {number} get a random number
+     */
     constructor() {
 
         this.iconsGrid = ["fa-heart", "fa-heart", "fa-magnet", "fa-magnet", "fa-balance-scale", "fa-balance-scale",
@@ -11,6 +17,6 @@ class Game {
     getRandomIndex() {
         return Math.floor(Math.random() * Math.floor(16));
     }
-
+    
     
 };
