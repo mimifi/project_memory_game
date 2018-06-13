@@ -44,4 +44,14 @@ class Game {
         });
     }
 
+    /**
+     * @description: show the number of moves
+     * function
+     * @param {number} numClicks 
+     */
+    showNumberOfMoves(numClicks) {
+        $(".moves").children().text(`Number of moves ${numClicks}`)
+    }
+
+
 };
