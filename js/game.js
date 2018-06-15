@@ -14,6 +14,7 @@ class Game {
         this.indexArray = [];
         this.clickCounter = 0;
         this.firstClickedElement;
+        this.correctClickCounter = 0;
     }
     getRandomIndex() {
         return Math.floor(Math.random() * Math.floor(16));
@@ -65,14 +66,29 @@ class Game {
         game.showNumberOfMoves(game.clickCounter);
         if (game.clickCounter % 2 === 0) {
             if ($(this).children().attr("class") === $(game.firstClickedElement).children().attr("class")) {
+                game.correctClickCounter++
 
             } else {
                 $(this).children().hide(3000);
                 $(game.firstClickedElement).children().hide(3000);
             }
-
+            game.checkGameOver(game.correctClickCounter, game.clickCounter);
         } else {
             game.firstClickedElement = $(this);
+        }
+    }
+
+    /**
+     * @description: check if game is over
+     * @function
+     * @param {number} correctClickCounter: number of correct clicks
+     * @param {number} clickCounter: number of clicks
+     */
+    checkGameOver(correctClickCounter, clickCounter) {
+        if (correctClickCounter === 8) {
+            alert('Congratulation! You won this game with.')
+        } else if (clickCounter > 40) {
+            alert('Game Over!')
         }
     }
 
