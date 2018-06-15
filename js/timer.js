@@ -9,14 +9,15 @@ class Timer {
         this.counterMin = 0;
         this.timeOut;
         this.isTimerOn = false;
+        this.displayCounterMin;
+        this.displayCounterSec;
     }
 
     /**
      * @description represent minute and second and display them
+     * @method
      */
     timedCount() {
-        let displayCounterMin;
-        let displayCounterSec;
         timer.counterSec += 1;
 
         if (timer.counterSec % 60 === 0) {
@@ -24,8 +25,8 @@ class Timer {
             timer.counterSec = 0;
         }
 
-        displayCounterMin = setTextWithTrailingZeroIfNecassery(timer.counterMin);
-        displayCounterSec = setTextWithTrailingZeroIfNecassery(timer.counterSec);
+        timer.displayCounterMin = setTextWithTrailingZeroIfNecassery(timer.counterMin);
+        timer.displayCounterSec = setTextWithTrailingZeroIfNecassery(timer.counterSec);
         /**
          * @description responsible to show the time in 00:00 format
          * @function 
@@ -37,12 +38,13 @@ class Timer {
             return counter < 10 ? "0" + counter : counter;
         };
 
-        $(".show_time").text(displayCounterMin + ":" + displayCounterSec);
+        $(".show_time").text(timer.displayCounterMin + ":" + timer.displayCounterSec);
 
         timer.timeOut = setTimeout(timer.timedCount, 1000);
     }
     /**
      * @description start to count time if boolean true
+     * @method
      */
 
     startCount() {
@@ -52,9 +54,20 @@ class Timer {
         }
     }
 
-/**
- * @description reset the timer back to 00:00
- */
+    /**
+     * @description: give me the taken time for the timer
+     * @method
+     */
+
+    giveMeTime() {
+        let takenTime = timer.displayCounterMin + ":" + timer.displayCounterSec;
+        return takenTime;
+    }
+
+    /**
+     * @description reset the timer back to 00:00
+     * @method
+     */
     resetTimer() {
         alert("Let us start a new game!")
         this.counterSec = 0;
@@ -62,6 +75,7 @@ class Timer {
     }
     /**
      * @description timer stop to count time
+     * @method
      */
 
     stopCount() {
