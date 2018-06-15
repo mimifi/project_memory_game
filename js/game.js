@@ -53,7 +53,7 @@ class Game {
      */
 
     onClickOnFlexItem() {
-        if ($(this) === $(game.firstClickedElement)) {
+        if ($(this).attr('id') === $(game.firstClickedElement).attr('id')) {
             return;
         }
 
