@@ -3,7 +3,7 @@ class Game {
     /**
      * @description: get a random number between 0 - 16 
      * @constructor
-     * @function
+     * @method
      * @returns: {number} get a random number
      */
     constructor() {
@@ -22,7 +22,7 @@ class Game {
 
     /**
      * @description: show and hide the random icon according to random number, start the timer
-     * @function
+     * @method
      * @param: {string} element: each element of iconsGrid
      * @param: {number} index: number of each element in array 
      */
@@ -48,7 +48,7 @@ class Game {
 
     /**
      * @description: check if two clicks show same icons or not - reduce the starts for each 8 clicks
-     * @function: 
+     * @method
      * @return: return nothing if user click 2 time on the same icon
      */
 
@@ -80,7 +80,7 @@ class Game {
 
     /**
      * @description: check if game is over
-     * @function
+     * @method
      * @param {number} correctClickCounter: number of correct clicks
      * @param {number} clickCounter: number of clicks
      */
@@ -94,7 +94,7 @@ class Game {
 
     /**
      * @description: show the number of moves
-     * function
+     * @method
      * @param {number} 
      */
     showNumberOfMoves(numClicks) {
@@ -103,7 +103,7 @@ class Game {
 
     /**
      * @description: reset the timer, reset all icons, reset 5 stars and start the game again
-     * @function
+     * @method
      */
 
     reset() {
@@ -115,7 +115,7 @@ class Game {
 
     /**
      * @description: reset stars back to 5 full stars
-     * @function
+     * @method
      */
 
     resetIcons() {
