@@ -124,6 +124,10 @@ class Game {
         $(".moves").children().text(`Number of moves ${numClicks}`)
     }
 
+    resetNumberOfMoves() {
+        $(".moves").children().text(`Number of moves: 0`)
+    }
+
     /**
      * @description: reset the timer, reset all icons, reset 5 stars and start the game again
      * @method
@@ -131,6 +135,7 @@ class Game {
 
     reset() {
         this.resetIcons();
+        this.resetNumberOfMoves();
         timer.resetTimer();
         stars.resetStars();
         game.start();
