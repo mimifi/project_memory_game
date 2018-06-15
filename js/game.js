@@ -86,7 +86,7 @@ class Game {
      */
     checkGameOver(correctClickCounter, clickCounter) {
         let playAgain;
-        const howManyClicksToLose = 10
+        const howManyClicksToLose = 30
         const isGameWon = correctClickCounter === 8;
         const isGameLost = clickCounter > howManyClicksToLose;
 
