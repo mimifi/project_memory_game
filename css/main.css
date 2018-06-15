@@ -4,7 +4,7 @@
 
 body {
     background-color: aliceblue;
-    margin: 30mm;
+    margin: 100px;
 }
 
 h1 {
@@ -19,8 +19,8 @@ p {
 }
 
 img {
-    width: 30%;
-    text-align: right;
+    width: 200px;
+    float: right;
 }
 
 .image {
@@ -32,10 +32,18 @@ img {
     flex-direction: row;
 }
 
+.flex-container-header>.headline,
+    {
+    flex: 4;
+}
+
+.flex-container-header>.image {
+    flex: 3;
+}
+
 .flex-container-header>.stars,
-.timer,
-.moves {
-    flex: none;
+.flex-container-header>.timer,
+.flex-container-header>.moves {
     border: 0.5em solid aliceblue;
     margin: auto;
     text-align: left;
