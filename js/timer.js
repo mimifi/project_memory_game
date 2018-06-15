@@ -80,6 +80,6 @@ class Timer {
 
     stopCount() {
         clearTimeout(this.timeOut);
-        this.isTimerOn = 0;
+        this.isTimerOn = false;
     }
 }
