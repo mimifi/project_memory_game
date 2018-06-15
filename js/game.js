@@ -86,9 +86,9 @@ class Game {
      */
     checkGameOver(correctClickCounter, clickCounter) {
         if (correctClickCounter === 8) {
-            alert('Congratulation! You won this game with.')
-        } else if (clickCounter > 40) {
-            alert('Game Over!')
+            alert(`Congratulation! You won this game with ${correctClickCounter} clicks and in ${timer.giveMeTime()}`)
+        } else if (clickCounter > 10) {
+            alert(`Game Over! With ${clickCounter} clicks in ${timer.giveMeTime()}`)
         }
     }
 
