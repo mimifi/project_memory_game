@@ -85,10 +85,22 @@ class Game {
      * @param {number} clickCounter: number of clicks
      */
     checkGameOver(correctClickCounter, clickCounter) {
-        if (correctClickCounter === 8) {
-            alert(`Congratulation! You won this game with ${stars.numStars} star rating and in ${timer.giveMeTime()}`)
+        if (correctClickCounter === 0) {
+            let win = confirm(`Congratulation! You won this game with ${stars.numStars} star rating and in ${timer.giveMeTime()} min. \n
+            If you want to play again click ok.`)
+            if (win) {
+                game.reset();
+            } else {
+                timer.stopCount();
+            }
         } else if (clickCounter > 10) {
-            alert(`Game Over! With ${clickCounter} clicks in ${timer.giveMeTime()}`)
+            let lose = confirm(`Game Over! With ${clickCounter} clicks in ${timer.giveMeTime()}. \nIf you want to play again click ok.`)
+            if (lose) {
+                game.reset();
+            } else {
+                timer.stopCount();
+
+            }
         }
     }
 
