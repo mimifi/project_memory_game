@@ -85,22 +85,33 @@ class Game {
      * @param {number} clickCounter: number of clicks
      */
     checkGameOver(correctClickCounter, clickCounter) {
-        if (correctClickCounter === 0) {
-            let win = confirm(`Congratulation! You won this game with ${stars.numStars} star rating and in ${timer.giveMeTime()} min. \n
-            If you want to play again click ok.`)
-            if (win) {
-                game.reset();
-            } else {
-                timer.stopCount();
-            }
-        } else if (clickCounter > 10) {
-            let lose = confirm(`Game Over! With ${clickCounter} clicks in ${timer.giveMeTime()}. \nIf you want to play again click ok.`)
-            if (lose) {
-                game.reset();
-            } else {
-                timer.stopCount();
+        let playAgain;
+        const howManyClicksToLose = 10
+        const isGameWon = correctClickCounter === 8;
+        const isGameLost = clickCounter > howManyClicksToLose;
 
+
+        if (isGameWon) {
+            playAgain = confirm(`Congratulation! You won this game with ${stars.numStars} star rating and in ${timer.giveMeTime()} min. \n
+            If you want to play again click ok.`)
+            userWantsToPlayAgain(playAgain)
+        } else if (isGameLost) {
+            playAgain = confirm(`Game Over! With ${clickCounter} clicks in ${timer.giveMeTime()}. \nIf you want to play again click ok.`)
+            userWantsToPlayAgain(playAgain)
+        }
+        /**
+         * @description Start of stop the game if user wants
+         * @function
+         * @param {boolean} 
+         */
+
+        function userWantsToPlayAgain(wantsToPlayAgain) {
+            if (wantsToPlayAgain) {
+                game.reset();
+            } else {
+                timer.stopCount();
             }
+
         }
     }
 
