@@ -30,6 +30,7 @@ class Game {
      */
     start() {
         this.clickCounter = 0;
+        this.correctClickCounter = 0;
         this.resetIcons();
         this.indexArray = [];
         const ctx = this;
@@ -76,7 +77,9 @@ class Game {
                 $(this).children().hide(3000);
                 $(game.firstClickedElement).children().hide(3000);
             }
-            game.checkGameOver(game.correctClickCounter, game.clickCounter);
+            setTimeout(function () {
+                game.checkGameOver(game.correctClickCounter, game.clickCounter)
+            }, 500);
         } else {
             game.firstClickedElement = $(this);
         }
@@ -139,6 +142,8 @@ class Game {
      */
 
     reset() {
+        $(".flex-container").off("click", ".flex-item", game.onClickOnFlexItem)
+        $(".flex-container").on("click", ".flex-item", game.onClickOnFlexItem)
         this.resetIcons();
         this.resetNumberOfMoves();
         timer.resetTimer();
