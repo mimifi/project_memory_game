@@ -104,7 +104,7 @@ class Game {
             userWantsToPlayAgain(playAgain)
         }
         /**
-         * @description Start of stop the game if user wants
+         * @description Start or stop the game according to user's request
          * @function
          * @param {boolean} 
          */
