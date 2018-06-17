@@ -17,6 +17,7 @@ class Game {
         this.firstClickedElement;
         this.correctClickCounter = 0;
     }
+
     getRandomIndex() {
         return Math.floor(Math.random() * Math.floor(16));
     }
@@ -32,6 +33,7 @@ class Game {
         this.resetIcons();
         this.indexArray = [];
         const ctx = this;
+        this.moves = 0;
         timer.startCount();
 
         this.iconsGrid.forEach(function (element, index) {
@@ -64,8 +66,9 @@ class Game {
 
         $(this).children().show(200);
         game.clickCounter++;
-        game.showNumberOfMoves(game.clickCounter);
+
         if (game.clickCounter % 2 === 0) {
+            game.showNumberOfMoves(++game.moves);
             if ($(this).children().attr("class") === $(game.firstClickedElement).children().attr("class")) {
                 game.correctClickCounter++
 
