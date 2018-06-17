@@ -100,7 +100,7 @@ class Game {
             If you want to play again click ok.`)
             userWantsToPlayAgain(playAgain)
         } else if (isGameLost) {
-            playAgain = confirm(`Game Over! With ${clickCounter} clicks in ${timer.giveMeTime()}. \nIf you want to play again click ok.`)
+            playAgain = confirm(`Game Over! With ${this.moves} clicks in ${timer.giveMeTime()}. \nIf you want to play again click ok.`)
             userWantsToPlayAgain(playAgain)
         }
         /**
@@ -114,6 +114,7 @@ class Game {
                 game.reset();
             } else {
                 timer.stopCount();
+                $(".flex-container").off("click", ".flex-item")
             }
 
         }
