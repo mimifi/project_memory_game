@@ -71,11 +71,13 @@ class Game {
         if (game.clickCounter % 2 === 0) {
             game.showNumberOfMoves(++game.moves);
             if ($(this).children().attr("class") === $(game.firstClickedElement).children().attr("class")) {
-                game.correctClickCounter++
+                game.correctClickCounter++;
+                $(this).addClass("click-disable");
+                $(game.firstClickedElement).addClass("click-disable");
 
             } else {
-                $(this).children().hide(3000);
-                $(game.firstClickedElement).children().hide(3000);
+                $(this).children().hide(500);
+                $(game.firstClickedElement).children().hide(500);
             }
             setTimeout(function () {
                 game.checkGameOver(game.correctClickCounter, game.clickCounter)

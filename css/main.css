@@ -83,4 +83,12 @@ img {
     margin: 20px 0 10px 0;
 }
 
+.click-available {
+    pointer-events: auto;
+}
+
+.click-disable {
+    pointer-events: none;
+}
+
 /**https://codepen.io/darkwing/pen/bCali*/
