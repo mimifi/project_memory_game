@@ -68,23 +68,46 @@ class Game {
         $(this).children().show(200);
         game.clickCounter++;
 
-        if (game.clickCounter % 2 === 0) {
-            game.showNumberOfMoves(++game.moves);
-            if ($(this).children().attr("class") === $(game.firstClickedElement).children().attr("class")) {
-                game.correctClickCounter++;
-                $(this).addClass("click-disable");
-                $(game.firstClickedElement).addClass("click-disable");
+        game.twoClicks(this, game.clickCounter);
+    }
 
-            } else {
-                $(this).children().hide(500);
-                $(game.firstClickedElement).children().hide(500);
-            }
+
+    /**
+     * @description: check if two icons clicked, show number of moves
+     * @method
+     * @param {string} ctx
+     * @param {number} clickCounter 
+     */
+    twoClicks(ctx, clickCounter) {
+        let areTwoClicks = clickCounter % 2 === 0;
+        if (areTwoClicks) {
+            this.showNumberOfMoves(++game.moves);
+            this.checkTwoClicks(ctx, this.correctClickCounter);
             setTimeout(function () {
                 game.checkGameOver(game.correctClickCounter, game.clickCounter)
             }, 500);
         } else {
-            game.firstClickedElement = $(this);
+            game.firstClickedElement = $(ctx);
         }
+    }
+
+    /**
+     * @description: check if clicked items matched, count the correct clicked, disable the false clicked
+     * @method
+     * @param {string} ctx
+     * @param {number} correctClickCounter
+     */
+
+    checkTwoClicks(ctx, correctClickCounter) {
+        if ($(ctx).children().attr("class") === $(game.firstClickedElement).children().attr("class")) {
+            game.correctClickCounter++;
+            $(ctx).addClass("click-disable");
+            $(game.firstClickedElement).children().addClass("click-disable");
+        } else {
+            $(ctx).children().hide(1000);
+            $(game.firstClickedElement).children().hide(1000);
+        }
+
     }
 
     /**
@@ -146,6 +169,7 @@ class Game {
     reset() {
         $(".flex-container").off("click", ".flex-item", game.onClickOnFlexItem)
         $(".flex-container").on("click", ".flex-item", game.onClickOnFlexItem)
+        $(".flex-item").removeClass("click-disable");
         this.resetIcons();
         this.resetNumberOfMoves();
         timer.resetTimer();
