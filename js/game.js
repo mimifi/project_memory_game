@@ -121,7 +121,19 @@ class Game {
         const howManyClicksToLose = 30
         const isGameWon = correctClickCounter === 8;
         const isGameLost = clickCounter > howManyClicksToLose;
-
+        /**
+         * @description Start or stop the game according to user's request
+         * @function
+         * @param {boolean} 
+         */
+        const userWantsToPlayAgain = (wantsToPlayAgain) => {
+            if (wantsToPlayAgain) {
+                game.reset();
+            } else {
+                timer.stopCount();
+                $(".flex-container").off("click", ".flex-item")
+            }
+        }
 
         if (isGameWon) {
             playAgain = confirm(`Congratulation! You won this game with ${stars.numStars} star rating and in ${timer.giveMeTime()} min. \n
@@ -130,21 +142,6 @@ class Game {
         } else if (isGameLost) {
             playAgain = confirm(`Game Over! With ${this.moves} clicks in ${timer.giveMeTime()}. \nIf you want to play again click ok.`)
             userWantsToPlayAgain(playAgain)
-        }
-        /**
-         * @description Start or stop the game according to user's request
-         * @function
-         * @param {boolean} 
-         */
-
-        function userWantsToPlayAgain(wantsToPlayAgain) {
-            if (wantsToPlayAgain) {
-                game.reset();
-            } else {
-                timer.stopCount();
-                $(".flex-container").off("click", ".flex-item")
-            }
-
         }
     }
 
