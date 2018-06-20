@@ -19,6 +19,15 @@ class Timer {
      */
     timedCount() {
         timer.counterSec += 1;
+        /**
+         * @description responsible to show the time in 00:00 format
+         * @function 
+         * @param{number} counter
+         * @returns{string} convert the counter to "00" format for min and sec 
+         */
+        const setTextWithTrailingZeroIfNecassery = (counter) => {
+            return counter < 10 ? "0" + counter : counter;
+        }
 
         if (timer.counterSec % 60 === 0) {
             timer.counterMin += 1
@@ -27,16 +36,6 @@ class Timer {
 
         timer.displayCounterMin = setTextWithTrailingZeroIfNecassery(timer.counterMin);
         timer.displayCounterSec = setTextWithTrailingZeroIfNecassery(timer.counterSec);
-        /**
-         * @description responsible to show the time in 00:00 format
-         * @function 
-         * @param{number} counter
-         * @returns{string} convert the counter to "00" format for min and sec 
-         */
-
-        function setTextWithTrailingZeroIfNecassery(counter) {
-            return counter < 10 ? "0" + counter : counter;
-        };
 
         $(".show_time").text(timer.displayCounterMin + ":" + timer.displayCounterSec);
 
